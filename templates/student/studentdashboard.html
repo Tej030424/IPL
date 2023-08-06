@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/studentdashboard.css') }}">
+
+    <script type="text/javascript">
+      function applyleave(){
+        window.location.href ="{{ url_for('apply_leave') }}";
+      }
+      function leavestatus(){
+        window.location.href ="{{ url_for('leave_status') }}";
+
+      }
+      
+      function outingstatus(){
+        window.location.href ="{{ url_for('outing_status') }}";
+
+      }
+      function searchroommates(){
+        window.location.href ="{{ url_for('apply_outing') }}";
+
+      }
+      
+      function raisecomplaint(){
+        window.location.href ="{{ url_for('raise_complaint') }}";
+
+      }
+    </script>
+  </head>
+  <body>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+{% include 'header.html' %}
+<!-- end about -->
+<div class="wrapper">
+
+   <div class="content">
+      <!-- card -->
+      <div class="card" onclick="searchroommates()">
+
+            <div class="icon"><i class="material-icons md-36">search</i></div>
+            <p class="title">Apply Outing</p>
+            <p class="text">Apply for Outing.</p>
+
+      </div>
+      <!-- end card -->
+      <!-- card -->
+      <div class="card" onclick="leavestatus()">
+
+            <div class="icon"><i class="material-icons md-36">description</i></div>
+            <p class="title">Leave Records</p>
+            <p class="text">Know status of your leaves</p>
+
+      </div>
+      <!-- end card -->
+
+      <div class="card" onclick="outingstatus()">
+
+        <div class="icon"><i class="material-icons md-36">description</i></div>
+        <p class="title">outing Records</p>
+        <p class="text">Know status of your outings</p>
+
+      </div>
+
+      <!-- card -->
+      <div class="card"  onclick="applyleave()">
+
+            <div class="icon"><i class="material-icons md-36">add</i></div>
+            <p class="title">Apply Leave</p>
+            <p class="text">Apply for leave.</p>
+
+      </div>
+      
+      <div class="card"  onclick="raisecomplaint()">
+
+            <div class="icon"><i class="material-icons md-36">add</i></div>
+            <p class="title">Raise Complaints</p>
+            <p class="text">You can raise you ComplaintS here</p>
+
+      </div>
+      
+      <!-- end card -->
+
+   </div>
+
+</div>
+
+
+
+  </body>
+</html>

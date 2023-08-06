@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <script type="text/javascript">
+
+     function goback(){
+         window.location.href ="{{ url_for('student_home') }}";
+     }
+   </script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/applyleave.css') }}">
+
+<body>
+  {% include 'header.html' %}
+  <div class="container">
+    <div class="title">Raise a Complaint</div>
+    <div class="content">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <form action="{{ url_for('raise_complaint') }}" method="post">
+        <div class="user-details">
+            <div style="width: 100%;" class="input-box">
+                <span class="details">Reg No</span>
+                <input type="text" name="regno" placeholder="Enter your regno" required>
+            </div>
+            
+            <div class="input-box">
+              <span class="details">Complaint</span>
+              <textarea type="text" name="complaint" placeholder="Enter your Complaint" style="width: 215%; height: 200px; border-radius: 10px; padding-left: 10px;"  required></textarea>
+            </div>
+          
+        </div>
+
+        <div class="button">
+          <input type="button" value="Go Back" onclick="goback()">
+          <input type="submit" name="submit" style="margin-left:85px;" >
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
